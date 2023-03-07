@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BuildSquare : MonoBehaviour
@@ -16,6 +17,10 @@ public class BuildSquare : MonoBehaviour
         this.j = j;
         this.grid = prototype;
     }
+    public void clickSelect()
+    {
+        grid.selected = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +35,7 @@ public class BuildSquare : MonoBehaviour
             building.isDoingConversion = true;
             building.conversionState = 0f;
         }
-        if(building.isDoingConversion)
+        if(building != null && building.isDoingConversion)
         {
             building.conversionState+= Time.deltaTime / building.type.mainConversion.duration;
             if(building.conversionState >= 1f)
@@ -98,6 +103,7 @@ public class BuildSquare : MonoBehaviour
     public bool canBuild(BuildingType buildingType)
     {
         if (building != null) return false;
+        if (!getSurrounding(1).Any(s => s.building != null)) return false;
         return hasResourcesAround(6, buildingType.constructionCost);
     }
     public bool canDowngrade()

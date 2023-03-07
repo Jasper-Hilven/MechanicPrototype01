@@ -193,10 +193,6 @@ public class Resources
         return new Resources(new Dictionary<ResourceType, long>() { { t0, amount0 }, { t1, amount1 }, { t2, amount2 }, { t3, amount3 }, { t4, amount4 } , { t5, amount5 } });
     }
 
-    internal Resources half()
-    {
-
-    }
 }
 public class ResourceType
 {

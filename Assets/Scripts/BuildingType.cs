@@ -27,5 +27,5 @@ public class BuildingType
     public static BuildingType Granary = new BuildingType(Conversion.prepMeals, "Granary", ResourceType.gold.n(30), true);
     public static BuildingType Bazaar = new BuildingType(Conversion.prepDishes, "Bazaar", ResourceType.gold.n(30), true);
     public static BuildingType Towncenter = new BuildingType(Conversion.idle, "Town center", ResourceType.gold.n(30), false);
-
+    public static List<BuildingType> all = new List<BuildingType>() { ReproductionCenter, NormalHouse, FancyHouse, HuntingHouse, Granary, Bazaar, Towncenter };
 }
