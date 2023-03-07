@@ -43,7 +43,7 @@ public class MechanicPrototype1 : MonoBehaviour
             }
         }
         center.building = new Building(BuildingType.Towncenter);
-        center.resources = ResourceType.gold.n(300).add(ResourceType.activeHuman.n(4));
+        center.resources = ResourceType.gold.n(1000).add(ResourceType.activeHuman.n(4));
         dropdownz.ClearOptions();
         dropdownz.AddOptions(BuildingType.all.Select(buildingType => new TMP_Dropdown.OptionData() { text = buildingType.name}).ToList());
     }
